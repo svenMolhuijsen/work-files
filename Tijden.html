@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Updates</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+        .timestamp {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .log {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="timestamp" id="timestamp">Standaardzinnen automatisch geupdate</div>
+    <div class="log">
+        1e BP <span id="bp1"></span> ||<br />
+        2e BP <span id="bp2"></span> ||<br />
+        3e BP <span id="bp3"></span>, e-mail verstuurd ||<br />
+    </div>
+    <div class="log">
+        1e BP <span id="bp4"></span> Geen gehoor || <br />
+        2e BP <span id="bp5"></span> Geen gehoor ||<br />
+        3e BP <span id="bp6"></span> Geen gehoor, e-mail verstuurd ||<br />
+    </div>
+    <div class="log">
+        1e BP <span id="bp7"></span>, Geen gehoor, Voicemail ingesproken ||<br />
+        2e BP <span id="bp8"></span>, Geen gehoor, Voicemail ingesproken ||<br />
+        3e BP <span id="bp9"></span>, Geen gehoor, Voicemail ingesproken, e-mail verstuurd ||<br />
+    </div>
+    <script>
+        function updateTimestamp() {
+            const now = new Date();
+            const formattedTime = now.toLocaleString('nl-NL', {
+                hour: 'numeric',
+                minute: 'numeric',
+                year: 'numeric',
+                month: 'numeric',
+                day: 'numeric'
+            });
+            document.getElementById('bp1').textContent = formattedTime;
+            document.getElementById('bp2').textContent = formattedTime;
+            document.getElementById('bp3').textContent = formattedTime;
+            document.getElementById('bp4').textContent = formattedTime;
+            document.getElementById('bp5').textContent = formattedTime;
+            document.getElementById('bp6').textContent = formattedTime;
+            document.getElementById('bp7').textContent = formattedTime;
+            document.getElementById('bp8').textContent = formattedTime;
+            document.getElementById('bp9').textContent = formattedTime;
+        }
+
+        // Update timestamp every second
+        setInterval(updateTimestamp, 1000);
+        updateTimestamp(); // Initial update
+    </script>
+</body>
+</html>
